@@ -6,20 +6,26 @@
     <title>Storhet Web Site</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
 </head>
 <body>
 
-    
+<?php
+// Veritabanı bağlantısı (Windows Authentication)
+$serverName = "KUTAY\\MSSQLSERVER01";
+$connectionOptions = array(
+    "Database" => "storhet"
+);
+$conn = sqlsrv_connect($serverName, $connectionOptions);
+if (!$conn) {
+    die("Veritabanına bağlanılamadı: " . print_r(sqlsrv_errors(), true));
+}
+?>
 
-
-
-    <header>
-        <div class="navbar">
-            <a href="index.html" class="logo">Storhet</a>
-            <ul class="nav_links">
-                <li><a href="../index.html">Anasayfa</a></li>
+<header>
+    <div class="navbar">
+        <a href="index.php" class="logo">Storhet</a>
+        <ul class="nav_links">
+            <li><a href="../index.html">Anasayfa</a></li>
             <li><a href="/pages/fotograflar.html">Fotoğraflar</a></li>
             <li><a href="/pages/kurulus.html">Kuruluş</a></li>
             <li><a href="/pages/iletisim.html">İletişim</a></li>
@@ -27,35 +33,31 @@
             <li><a href="/pages/store.html">Store</a></li>
             <li><a href="https://www.biletix.com/anasayfa/ISTANBUL/tr" target="_blank">Biletler</a></li>
             <li><a href="/pages/register.html"><i class="fa-regular fa-user" style="color: #ffffff;"></i></a></li>
-            </ul>
+        </ul>
+    </div>
+</header>
+
+<section id="Anasayfa">
+    <div class="inner_anasayfa">
+        <div class="anasayfa_child">
+            <img src="img/WhatsApp Görsel 2025-01-08 saat 23.52.24_7b3f625c.jpg" alt="Anasayfa Görseli">
         </div>
-    </header>
+    </div>
+</section>
 
-    <section id="Anasayfa">
-        <div class="inner_anasayfa">
-            <div class="anasayfa_child">
-                <img src="img/WhatsApp Görsel 2025-01-08 saat 23.52.24_7b3f625c.jpg" alt="Anasayfa Görseli">
-            </div>
-        </div>
-    </section>
+<section class="haberler-kutusu">
+    <div class="section_title">
+        <h2>Haberler</h2>
+    </div>
+</section>
 
-    <section class="haberler-kutusu">
-        <div class="section_title">
-            <h2>Haberler</h2>
-            
-             <img src="">
-        
+<footer class="site-footer">
+    <p>&copy; 2025 Storhet. Tüm hakları saklıdır.</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/storhetmusic/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@storhetmusic" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</footer>
 
-            <footer class="site-footer">
-                <p>&copy; 2025 Storhet. Tüm hakları saklıdır.</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/storhetmusic/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@storhetmusic" target="_blank"><i class="fab fa-tiktok"></i></a>
-
-                  
-                </div>
-            </footer>
-          
 </body>
 </html>
-
